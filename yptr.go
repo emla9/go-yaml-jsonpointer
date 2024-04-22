@@ -26,10 +26,6 @@ var (
 // FindAll finds all locations in the json/yaml tree pointed by root that match the extended
 // JSONPointer passed in ptr.
 func FindAll(root *yaml.Node, ptr string) ([]*yaml.Node, error) {
-	if ptr == "" {
-		return nil, fmt.Errorf("invalid empty pointer")
-	}
-
 	toks, err := jsonPointerToTokens(ptr)
 	if err != nil {
 		return nil, err
